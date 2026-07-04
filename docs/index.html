@@ -103,7 +103,7 @@
     <p class="lede">An <b>offline-first</b> billing &amp; invoicing system: a mobile app your staff use to make bills with or without signal, an <b>admin portal</b> to manage catalog and customers, and a <b>client portal</b> where customers view their own bills. It syncs through Firebase, Supabase and Cloudflare — and <b>self-hosts on free tiers</b>.</p>
     <div class="cta">
       <a target="_blank" rel="noopener noreferrer" class="btn primary" href="https://github.com/rahul-mimani/baniya">View on GitHub →</a>
-      <a target="_blank" rel="noopener noreferrer" class="btn ghost" href="./gallery.html">See screenshots</a>
+      <a class="btn ghost" href="#demo">Live client demo</a>
       <a target="_blank" rel="noopener noreferrer" class="btn ghost" href="./scale.html">Capacity &amp; scale</a>
     </div>
   </header>
@@ -135,6 +135,35 @@
       <span class="pill">React + Vite</span>
       <span class="pill">Capacitor / Android</span>
     </div>
+  </section>
+
+  <style>
+    #demo .shots{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-bottom:14px;}
+    #demo .shots.phones{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+    #demo figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+    #demo figure a{display:block;line-height:0;}
+    #demo figure img{width:100%;height:auto;display:block;background:var(--panel-2);}
+    #demo figcaption{padding:9px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);}
+    #demo figure:hover{border-color:var(--accent);}
+    #demo .seeall{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-weight:600;font-size:14.5px;text-decoration:none;}
+    #demo .privacy{font-size:13px;color:var(--faint);margin:0 0 18px;}
+  </style>
+  <section id="demo">
+    <p class="kicker">Live client demo</p>
+    <p class="lede" style="margin-bottom:8px">Baniya running in a <b>real shop</b> — the admin console, customer portal, and mobile app in production.</p>
+    <p class="privacy">🔒 Customer names, phone numbers and amounts are blurred for privacy.</p>
+    <div class="shots">
+      <figure><a href="./screenshots/03-admin-overview.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/03-admin-overview.jpg" alt="Admin dashboard"></a><figcaption>Admin — dashboard &amp; outstanding</figcaption></figure>
+      <figure><a href="./screenshots/05-admin-customers.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/05-admin-customers.jpg" alt="Customers"></a><figcaption>Admin — customers &amp; pricing classes</figcaption></figure>
+      <figure><a href="./screenshots/10-client-home.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/10-client-home.jpg" alt="Client portal"></a><figcaption>Customer portal — home</figcaption></figure>
+    </div>
+    <div class="shots phones">
+      <figure><a href="./screenshots/13-mobile-home.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/13-mobile-home.jpg" alt="Mobile home"></a><figcaption>Mobile — home</figcaption></figure>
+      <figure><a href="./screenshots/15-mobile-new-bill.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/15-mobile-new-bill.jpg" alt="Create bill"></a><figcaption>Mobile — create bill</figcaption></figure>
+      <figure><a href="./screenshots/21-mobile-payments.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/21-mobile-payments.jpg" alt="Payments"></a><figcaption>Mobile — payments &amp; dues</figcaption></figure>
+      <figure><a href="./screenshots/17-mobile-bill-items.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/17-mobile-bill-items.jpg" alt="Bill items"></a><figcaption>Mobile — line items</figcaption></figure>
+    </div>
+    <a class="seeall" href="./gallery.html" target="_blank" rel="noopener">See all 20 screenshots →</a>
   </section>
 
   <section>
