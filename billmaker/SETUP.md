@@ -85,6 +85,14 @@ project** → name it anything → note the **Project ID** (e.g. `myshop-1a2b3`)
 database** → choose a region near your users (reference used `asia-east2`) →
 start in **production mode**.
 
+**1.2b Enable Anonymous Authentication (required).** The app and portal sign in
+anonymously before reading/writing Firestore, so you must turn Auth on:
+- Left nav → **Build → Authentication → Get started**
+- **Sign-in method** tab → **Add new provider → Anonymous → Enable → Save**
+
+> Skipping this gives `identitytoolkit.googleapis.com … CONFIGURATION_NOT_FOUND`
+> (or "auth/configuration-not-found") when the app tries to sync.
+
 **1.3 Register a Web app.** ⚙️ **Project settings → General → Your apps → </>
 (Web)** → register. Copy the shown `firebaseConfig` — you need **`apiKey`,
 `projectId`, `appId`**. (You'll type these into the app + portal Settings later;
@@ -355,6 +363,7 @@ If all five pass, your instance is fully wired.
 
 | Symptom | Fix |
 |---|---|
+| `CONFIGURATION_NOT_FOUND` / `auth/configuration-not-found` | Enable Firebase **Authentication → Anonymous** provider ([Step 1.2b](#1-firebase-firestore)). |
 | App won't sync | Confirm Firebase config + shop code in Settings and that `firestore.rules` is deployed. Check the in-app **Diagnostics** log. |
 | No OTP email | Verify `BREVO_API_KEY` and that `EMAIL_FROM` is a **verified** Brevo sender. Worker logs: `cd auth-service && npx wrangler tail`. |
 | Portal admin sees no data | The admin console reads Firestore directly — re-check the Firebase config + shop code entered in portal **Settings**. |
