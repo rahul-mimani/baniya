@@ -36,9 +36,9 @@ jobs:
         run: |
           mkdir -p _site
           cp -r billmaker/docs/. _site/
+      # NOTE: enable Pages once first — repo Settings → Pages → Source: "GitHub Actions".
+      # (Auto-enable via `enablement: true` needs elevated token perms this repo doesn't grant.)
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
