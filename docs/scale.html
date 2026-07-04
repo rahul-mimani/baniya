@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BillMaker — Capacity &amp; Scale on free cloud tiers</title>
-<meta name="description" content="How many mobile users, admins, and clients one free-tier deployment of the open-source BillMaker serves — and why it fits small-to-medium shops." />
+<title>Baniya — Capacity &amp; Scale on free cloud tiers</title>
+<meta name="description" content="How many mobile users, admins, and clients one free-tier deployment of the open-source Baniya serves — and why it fits small-to-medium shops." />
 
 <!-- Social share card (LinkedIn / X / Slack). If you fork this repo, replace the
      rahul-mimani.github.io/baniya URLs below with your own Pages URL. -->
 <link rel="canonical" href="https://rahul-mimani.github.io/baniya/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="BillMaker" />
-<meta property="og:title" content="BillMaker — Capacity &amp; Scale on free cloud tiers" />
-<meta property="og:description" content="How many mobile users, admins, and clients one free-tier deployment of the open-source BillMaker serves — and why it fits small-to-medium shops." />
+<meta property="og:site_name" content="Baniya" />
+<meta property="og:title" content="Baniya — Capacity &amp; Scale on free cloud tiers" />
+<meta property="og:description" content="How many mobile users, admins, and clients one free-tier deployment of the open-source Baniya serves — and why it fits small-to-medium shops." />
 <meta property="og:url" content="https://rahul-mimani.github.io/baniya/" />
 <meta property="og:image" content="https://rahul-mimani.github.io/baniya/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="BillMaker capacity: ~200 mobile devices, no admin cap, thousands of clients on free cloud tiers." />
+<meta property="og:image:alt" content="Baniya capacity: ~200 mobile devices, no admin cap, thousands of clients on free cloud tiers." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BillMaker — Capacity &amp; Scale on free cloud tiers" />
+<meta name="twitter:title" content="Baniya — Capacity &amp; Scale on free cloud tiers" />
 <meta name="twitter:description" content="How many mobile users, admins, and clients one free-tier deployment serves — and why it fits small-to-medium shops." />
 <meta name="twitter:image" content="https://rahul-mimani.github.io/baniya/og-image.png" />
 <style>
@@ -198,9 +198,9 @@
 <div class="wrap">
 
   <header>
-    <p class="eyebrow"><span class="dot"></span>BillMaker · self-hosted capacity</p>
+    <p class="eyebrow"><span class="dot"></span>Baniya · self-hosted capacity</p>
     <h1>How far one free deployment goes <span class="thin">— mobile users, admins, and clients.</span></h1>
-    <p class="lede">BillMaker runs on the free tiers of <b>Firebase</b>, <b>Supabase</b>, <b>Cloudflare Workers</b>, and <b>Brevo</b>. The numbers below are for a <b>single deployment</b> — one Firebase project, one Supabase project, one Worker — which is multi-tenant and hosts many shops at once. They're planning estimates: the real ceiling depends on how many bills you write and pages you open per day.</p>
+    <p class="lede">Baniya runs on the free tiers of <b>Firebase</b>, <b>Supabase</b>, <b>Cloudflare Workers</b>, and <b>Brevo</b>. The numbers below are for a <b>single deployment</b> — one Firebase project, one Supabase project, one Worker — which is multi-tenant and hosts many shops at once. They're planning estimates: the real ceiling depends on how many bills you write and pages you open per day.</p>
   </header>
 
   <section aria-label="Headline capacity">
@@ -236,7 +236,7 @@
       <h2>Why it fits small-to-medium shops</h2>
       <span class="num">the sweet spot</span>
     </div>
-    <p class="note">BillMaker is deliberately built <b>local-first on free infrastructure</b> — a design that trades limitless scale for zero cost, offline resilience, and near-zero ops. That's exactly what a single shop or a small chain needs, and exactly where a big-box enterprise stack would be overkill.</p>
+    <p class="note">Baniya is deliberately built <b>local-first on free infrastructure</b> — a design that trades limitless scale for zero cost, offline resilience, and near-zero ops. That's exactly what a single shop or a small chain needs, and exactly where a big-box enterprise stack would be overkill.</p>
     <div class="cols" style="margin-top:18px">
       <div class="card" style="border-color:var(--ok)">
         <h3>Built for this <span class="chip ok" style="margin-left:6px">ideal</span></h3>
@@ -273,7 +273,7 @@
           <tr>
             <th scope="col">Service (free)</th>
             <th scope="col">Free limit</th>
-            <th scope="col">What it caps in BillMaker</th>
+            <th scope="col">What it caps in Baniya</th>
             <th scope="col">Practical headroom</th>
           </tr>
         </thead>
@@ -364,14 +364,14 @@
     <div class="kicker"><h2>Assumptions &amp; caveats</h2></div>
     <ul class="plain">
       <li><b>Estimates, not guarantees.</b> Real ceilings depend on bills written and pages viewed per day — a read-heavy admin dashboard on a large catalog spends the Firestore read budget faster.</li>
-      <li><b>Auth isn't Supabase Auth.</b> BillMaker uses its own OTP + JWT, so client accounts are ordinary rows — there's no 50k monthly-active-user cap; storage and email throughput are the real limits.</li>
+      <li><b>Auth isn't Supabase Auth.</b> Baniya uses its own OTP + JWT, so client accounts are ordinary rows — there's no 50k monthly-active-user cap; storage and email throughput are the real limits.</li>
       <li><b>Mobile is offline-first.</b> Devices work with no connection and sync when back online, so brief connection spikes don't break anything — the 200-connection number is about <em>simultaneously live</em> devices.</li>
       <li><b>Supabase free projects pause</b> after ~7 days of inactivity — fine for a live shop, worth knowing for a demo.</li>
     </ul>
   </section>
 
   <footer>
-    <b>BillMaker</b> — open-source billing for small shops. Figures reflect provider free tiers at time of writing; check each provider for current limits. See <b>SETUP.md</b> and <b>DEPLOYMENT.md</b> in the repo to stand up your own.
+    <b>Baniya</b> — open-source billing for small shops. Figures reflect provider free tiers at time of writing; check each provider for current limits. See <b>SETUP.md</b> and <b>DEPLOYMENT.md</b> in the repo to stand up your own.
   </footer>
 
 </div>
