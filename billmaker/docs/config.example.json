@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "shopCode": "your-shop-code",
+
+  "firebase": {
+    "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "projectId": "your-firebase-project-id",
+    "appId": "1:000000000000:web:xxxxxxxxxxxxxxxx",
+    "authDomain": "your-firebase-project-id.firebaseapp.com",
+    "messagingSenderId": "000000000000",
+    "storageBucket": "your-firebase-project-id.appspot.com"
+  },
+
+  "business": {
+    "name": "Your Shop",
+    "phone": "+91 90000 00000",
+    "address": "123 Market Road, Your City — 000000",
+    "gst": "29ABCDE1234F1Z5"
+  },
+
+  "cloudinary": {
+    "cloudName": "your-cloudinary-cloud-name",
+    "uploadPreset": "your-unsigned-preset"
+  },
+
+  "shop": {
+    "display_name": "Your Shop",
+    "admin_contact_email": "owner@yourshop.example",
+    "admin_contact_phone": "+91 90000 00000"
+  }
+}

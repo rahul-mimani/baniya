@@ -88,6 +88,11 @@ There are no secrets in source. Each service reads its own config:
 alerts. The shop name on bills/statements comes from the business info you enter
 in the app. See [SETUP.md](./SETUP.md).
 
+**Bulk device setup:** instead of typing settings on every device, hand out one
+JSON file and import it in the app/portal Settings. Template:
+[`docs/config.example.json`](./docs/config.example.json); guide:
+[`docs/import-config.md`](./docs/import-config.md).
+
 ## Development
 
 Each package has its own `package.json`. Common commands:
