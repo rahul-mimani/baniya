@@ -70,7 +70,7 @@ Full step-by-step (accounts, credentials, SQL, deploy) is in
 For **production hosting** — portal → Vercel, worker → Cloudflare, custom domains,
 and wiring them together — see **[DEPLOYMENT.md](./DEPLOYMENT.md)**. For capacity
 on the free tiers (how many mobile users / admins / clients), see
-[docs/scale.html](./docs/scale.html).
+[docs/scale.html](../docs/scale.html).
 
 ## Configuration model
 

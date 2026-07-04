@@ -70,7 +70,7 @@ Full step-by-step (accounts, credentials, SQL, deploy) is in
 For **production hosting** (portal → Vercel, worker → Cloudflare, custom domains),
 see [billmaker/DEPLOYMENT.md](./billmaker/DEPLOYMENT.md). For **free-tier capacity**
 (how many mobile users / admins / clients, and who it's for), see
-[billmaker/docs/scale.html](./billmaker/docs/scale.html).
+[docs/scale.html](./docs/scale.html).
 
 ## Configuration model
 
