@@ -92,12 +92,22 @@ the web `apiKey` is *not* a secret — access is gated by security rules + shop 
 
 **1.4 Deploy the security rules and indexes.**
 ```bash
-cp .firebaserc.example .firebaserc     # edit: set "default" to your Project ID
+cp .firebaserc.example .firebaserc     # then edit it — see below
 firebase login
 firebase deploy --only firestore:rules,firestore:indexes
 ```
-✓ **Verify:** Firebase Console → Firestore → **Rules** tab shows the BillMaker
-rules. `firestore.indexes.json` is intentionally empty (no composite indexes).
+`.firebaserc` holds **only your Project ID** as JSON — nothing else. Edit it to:
+```json
+{ "projects": { "default": "your-firebase-project-id" } }
+```
+> ⚠️ **Do NOT paste the Firebase "web config" here.** The `apiKey` / `authDomain` /
+> `appId` snippet the Console shows you is a *different thing* — it is **not a
+> file**. You'll type those values into the **app's Settings screen** later
+> ([Step 6.2](#6-web-portal) and [Step 7.2](#7-mobile-app)). `.firebaserc` is used
+> only by the `firebase` CLI to know which project to deploy the rules to.
+
+✓ **Verify:** Firebase Console → Firestore → **Rules** tab shows your deployed
+security rules. `firestore.indexes.json` is intentionally empty (no composite indexes).
 
 **1.5 Create a service account** (the Worker uses it to read Firestore).
 ⚙️ **Project settings → Service accounts → Generate new private key** → downloads
