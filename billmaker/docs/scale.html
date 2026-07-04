@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BillMaker — Capacity &amp; Scale</title>
+<style>
+  :root {
+    --bg: #f6f8fb;
+    --panel: #ffffff;
+    --panel-2: #f1f5f9;
+    --ink: #0f172a;
+    --muted: #5b6b82;
+    --faint: #8494a8;
+    --line: #e2e8f0;
+    --accent: #0284c7;
+    --accent-soft: #e0f2fe;
+    --ok: #0e9f6e;
+    --ok-soft: #d9f5e8;
+    --cap: #d97706;
+    --cap-soft: #fdecc8;
+    --shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.05);
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0a0f1a;
+      --panel: #111a2b;
+      --panel-2: #16223a;
+      --ink: #e6edf6;
+      --muted: #9fb0c6;
+      --faint: #6b7d96;
+      --line: #24334c;
+      --accent: #38bdf8;
+      --accent-soft: #0b2740;
+      --ok: #34d399;
+      --ok-soft: #0c2a20;
+      --cap: #fbbf24;
+      --cap-soft: #33240a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f8fb; --panel: #ffffff; --panel-2: #f1f5f9; --ink: #0f172a;
+    --muted: #5b6b82; --faint: #8494a8; --line: #e2e8f0; --accent: #0284c7;
+    --accent-soft: #e0f2fe; --ok: #0e9f6e; --ok-soft: #d9f5e8; --cap: #d97706;
+    --cap-soft: #fdecc8; --shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0a0f1a; --panel: #111a2b; --panel-2: #16223a; --ink: #e6edf6;
+    --muted: #9fb0c6; --faint: #6b7d96; --line: #24334c; --accent: #38bdf8;
+    --accent-soft: #0b2740; --ok: #34d399; --ok-soft: #0c2a20; --cap: #fbbf24;
+    --cap-soft: #33240a; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: clamp(24px, 5vw, 64px) clamp(18px, 4vw, 40px) 72px; }
+
+  /* ---- header ---- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 14px;
+    display: inline-flex; align-items: center; gap: 9px;
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+  h1 {
+    font-size: clamp(30px, 5.2vw, 46px); line-height: 1.05; letter-spacing: -.02em;
+    margin: 0 0 16px; text-wrap: balance; font-weight: 700;
+  }
+  h1 .thin { color: var(--muted); font-weight: 500; }
+  .lede { font-size: clamp(16px, 2.2vw, 19px); color: var(--muted); max-width: 60ch; margin: 0; }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  /* ---- section scaffolding ---- */
+  section { margin-top: clamp(40px, 6vw, 64px); }
+  .kicker {
+    display: flex; align-items: baseline; gap: 12px; margin: 0 0 20px;
+    border-bottom: 1px solid var(--line); padding-bottom: 12px;
+  }
+  .kicker h2 { font-size: 20px; letter-spacing: -.01em; margin: 0; font-weight: 650; }
+  .kicker .num { font-family: var(--mono); font-size: 13px; color: var(--faint); }
+  .kicker .aside { margin-left: auto; font-size: 13px; color: var(--faint); }
+  p.note { color: var(--muted); font-size: 15px; max-width: 68ch; }
+
+  /* ---- headline stat tiles ---- */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 720px) { .tiles { grid-template-columns: 1fr; } }
+  .tile {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 22px 20px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .tile::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--accent); opacity: .85; }
+  .tile .label {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tile .big {
+    font-family: var(--mono); font-size: clamp(30px, 6vw, 42px); font-weight: 600;
+    letter-spacing: -.02em; line-height: 1.02; color: var(--ink); font-variant-numeric: tabular-nums;
+  }
+  .tile .big small { font-size: .42em; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+  .tile .sub { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+  .tile .bound {
+    margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line);
+    font-size: 12.5px; color: var(--faint); display: flex; gap: 7px; align-items: baseline;
+  }
+  .tile .bound b { color: var(--muted); font-weight: 600; }
+
+  /* ---- chips ---- */
+  .chip {
+    font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .04em;
+    padding: 2px 8px; border-radius: 999px; white-space: nowrap; text-transform: uppercase;
+  }
+  .chip.cap { color: var(--cap); background: var(--cap-soft); }
+  .chip.ok { color: var(--ok); background: var(--ok-soft); }
+
+  /* ---- table ---- */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14.5px; }
+  thead th {
+    text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; padding: 14px 18px; background: var(--panel-2); border-bottom: 1px solid var(--line);
+  }
+  tbody td { padding: 15px 18px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--muted); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody td.svc { color: var(--ink); font-weight: 600; white-space: nowrap; }
+  tbody td .lim { font-family: var(--mono); font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  /* ---- two-col cards ---- */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 6px; font-size: 15.5px; }
+  .card h3 .tag { font-family: var(--mono); font-size: 11px; color: var(--accent); background: var(--accent-soft); padding: 2px 7px; border-radius: 6px; margin-left: 8px; vertical-align: middle; letter-spacing: .04em; }
+  .card p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+
+  /* ---- scaling list ---- */
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step {
+    display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .step .price {
+    font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--accent);
+    background: var(--accent-soft); padding: 5px 10px; border-radius: 8px; white-space: nowrap; letter-spacing: -.01em;
+  }
+  .step .body strong { color: var(--ink); }
+  .step .body { font-size: 14.5px; color: var(--muted); }
+
+  ul.plain { margin: 10px 0 0; padding-left: 18px; }
+  ul.plain li { margin: 5px 0; color: var(--muted); font-size: 14.5px; }
+  ul.plain li b { color: var(--ink); }
+  code { font-family: var(--mono); font-size: .88em; background: var(--panel-2); padding: 1px 6px; border-radius: 5px; color: var(--ink); }
+
+  footer {
+    margin-top: clamp(44px, 6vw, 64px); padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--faint);
+  }
+  footer b { color: var(--muted); }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow"><span class="dot"></span>BillMaker · self-hosted capacity</p>
+    <h1>How far one free deployment goes <span class="thin">— mobile users, admins, and clients.</span></h1>
+    <p class="lede">BillMaker runs on the free tiers of <b>Firebase</b>, <b>Supabase</b>, <b>Cloudflare Workers</b>, and <b>Brevo</b>. The numbers below are for a <b>single deployment</b> — one Firebase project, one Supabase project, one Worker — which is multi-tenant and hosts many shops at once. They're planning estimates: the real ceiling depends on how many bills you write and pages you open per day.</p>
+  </header>
+
+  <section aria-label="Headline capacity">
+    <div class="kicker">
+      <h2>The short answer</h2>
+      <span class="num">free tier · per deployment</span>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <span class="label">Mobile devices</span>
+        <span class="big">~200 <small>online at once</small></span>
+        <span class="sub">Shop-staff phones/tablets creating bills, live-syncing together.</span>
+        <span class="bound"><span class="chip cap">bound by</span> <b>Supabase Realtime</b> — 200 concurrent connections free.</span>
+      </div>
+      <div class="tile">
+        <span class="label">Admins / shop</span>
+        <span class="big">No limit <small>1–10 typical</small></span>
+        <span class="sub">Portal accounts that manage catalog, customers &amp; bills.</span>
+        <span class="bound"><span class="chip ok">headroom</span> <b>no code cap</b> — add any number via the portal.</span>
+      </div>
+      <div class="tile">
+        <span class="label">Clients served</span>
+        <span class="big">1,000s <small>of accounts</small></span>
+        <span class="sub">Customers who log into the client portal to see their bills.</span>
+        <span class="bound"><span class="chip cap">bound by</span> <b>~300 logins/day</b> (OTP email) &amp; storage.</span>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">A typical small shop uses <b>2–5 staff devices</b>, <b>1–3 admins</b>, and anywhere from a handful to a few thousand customers — so a single free deployment comfortably covers roughly <b>10–50 small shops</b> before any limit bites.</p>
+  </section>
+
+  <section aria-label="Who it fits">
+    <div class="kicker">
+      <h2>Why it fits small-to-medium shops</h2>
+      <span class="num">the sweet spot</span>
+    </div>
+    <p class="note">BillMaker is deliberately built <b>local-first on free infrastructure</b> — a design that trades limitless scale for zero cost, offline resilience, and near-zero ops. That's exactly what a single shop or a small chain needs, and exactly where a big-box enterprise stack would be overkill.</p>
+    <div class="cols" style="margin-top:18px">
+      <div class="card" style="border-color:var(--ok)">
+        <h3>Built for this <span class="chip ok" style="margin-left:6px">ideal</span></h3>
+        <ul class="plain">
+          <li><b>Corner shops &amp; small chains</b> — 1 to ~50 outlets, a few billing devices each.</li>
+          <li><b>Patchy internet</b> — the app is offline-first: it works with no signal and syncs when it's back, so a dropped connection never blocks a sale.</li>
+          <li><b>Tight budgets</b> — the whole stack runs on free tiers; you pay only after real growth.</li>
+          <li><b>No ops team</b> — no servers to run; managed Firebase/Supabase/Cloudflare do the heavy lifting.</li>
+          <li><b>Hundreds–thousands of bills/day</b> and up to a few thousand customers on the client portal.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:var(--cap)">
+        <h3>Reach for more when <span class="chip cap" style="margin-left:6px">outgrown</span></h3>
+        <ul class="plain">
+          <li><b>Hundreds of POS lanes billing at once</b> — past the ~200 live-connection comfort zone.</li>
+          <li><b>Millions of transactions/day</b> — beyond what shared free-tier write budgets absorb.</li>
+          <li><b>Sub-second, cross-region consistency</b> or heavy analytics/warehousing needs.</li>
+          <li><b>Strict enterprise compliance</b> (dedicated tenancy, audit pipelines, SSO).</li>
+        </ul>
+        <p>At that scale you'd lift the paid tiers below — and eventually graduate to dedicated infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="What sets the ceiling">
+    <div class="kicker">
+      <h2>What actually sets the ceiling</h2>
+      <span class="num">free-tier limits</span>
+      <span class="aside">shared across all shops in the deployment</span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Service (free)</th>
+            <th scope="col">Free limit</th>
+            <th scope="col">What it caps in BillMaker</th>
+            <th scope="col">Practical headroom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="svc">Firebase<br />Firestore</td>
+            <td><span class="lim">20k writes<br />50k reads / day<br />1 GiB stored</span></td>
+            <td>Bills written by mobile + the admin console reading Firestore directly.</td>
+            <td>≈ <b>5,000–10,000 bills/day</b>. <span class="chip cap">primary cap</span> for bill volume.</td>
+          </tr>
+          <tr>
+            <td class="svc">Supabase</td>
+            <td><span class="lim">200 concurrent<br />realtime conns<br />500 MB DB</span></td>
+            <td>Concurrent mobile devices (1 live connection each) + the searchable data replica.</td>
+            <td>≈ <b>200 devices online</b>; DB holds tens of thousands of bills. <span class="chip cap">mobile cap</span></td>
+          </tr>
+          <tr>
+            <td class="svc">Cloudflare<br />Workers</td>
+            <td><span class="lim">100k requests<br />/ day</span></td>
+            <td>Every client &amp; admin API call, OTP flow, and cron sync tick.</td>
+            <td>≈ <b>10,000 client sessions/day</b>. Rarely the first limit hit.</td>
+          </tr>
+          <tr>
+            <td class="svc">Brevo<br />(email)</td>
+            <td><span class="lim">300 emails<br />/ day</span></td>
+            <td>Every OTP sign-in — mobile, admin, and client — sends one email.</td>
+            <td>≈ <b>300 new logins/day</b>. Sessions last 12h (admin) / 30d (client), so this stretches far.</td>
+          </tr>
+          <tr>
+            <td class="svc">Cloudinary<br /><span style="font-weight:400;color:var(--faint)">optional</span></td>
+            <td><span class="lim">~25 GB / mo</span></td>
+            <td>Product images shown in the portal (skip it and there's no limit).</td>
+            <td><span class="chip ok">plenty</span> for a catalog of product photos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-label="Per shop versus per deployment">
+    <div class="kicker">
+      <h2>Per shop vs. per deployment</h2>
+      <span class="num">multi-tenant</span>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>One shop <span class="tag">shops/&lt;code&gt;</span></h3>
+        <p>All of a shop's data lives under its own <code>shop_code</code>. A shop is a few staff devices, a few admins, and its own customers. Nothing in the code caps devices, admins, or clients <em>per shop</em> — the shared cloud limits are what you divide up.</p>
+      </div>
+      <div class="card">
+        <h3>One deployment <span class="tag">many shops</span></h3>
+        <p>A single Firebase + Supabase + Worker hosts many shops at once, each isolated by <code>shop_code</code>. The free-tier limits above are shared across all of them — so growth is about total bills and logins per day, not shop count.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Scaling beyond free">
+    <div class="kicker">
+      <h2>Scaling past the free tiers</h2>
+      <span class="num">pay only where you hit a wall</span>
+    </div>
+    <p class="note">Each limit lifts independently — you upgrade only the one service you've outgrown, and the app needs no code changes.</p>
+    <div class="steps" style="margin-top:18px">
+      <div class="step">
+        <span class="price">pay-as-you-go</span>
+        <div class="body"><strong>Firebase Blaze</strong> removes the 20k-write / 50k-read daily caps — you pay pennies per extra 100k operations. This is the main lever for more bills and more shops.</div>
+      </div>
+      <div class="step">
+        <span class="price">~$25 / mo</span>
+        <div class="body"><strong>Supabase Pro</strong> → 8&nbsp;GB database, ~500 concurrent realtime connections, higher bandwidth, and no auto-pause. Lifts the ~200-device ceiling and the storage cap.</div>
+      </div>
+      <div class="step">
+        <span class="price">~$5 / mo</span>
+        <div class="body"><strong>Cloudflare Workers Paid</strong> → 10&nbsp;million requests/month included, for high client-portal traffic.</div>
+      </div>
+      <div class="step">
+        <span class="price">paid plan</span>
+        <div class="body"><strong>Brevo</strong> (or another email provider) → thousands of emails/day, so many more sign-ins per day.</div>
+      </div>
+      <div class="step">
+        <span class="price">free</span>
+        <div class="body"><strong>Split the load</strong> — give a busy shop its own Worker (<code>WORKER_PROFILE=secondary</code>) so cron sync spreads out. No extra cost.</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Assumptions">
+    <div class="kicker"><h2>Assumptions &amp; caveats</h2></div>
+    <ul class="plain">
+      <li><b>Estimates, not guarantees.</b> Real ceilings depend on bills written and pages viewed per day — a read-heavy admin dashboard on a large catalog spends the Firestore read budget faster.</li>
+      <li><b>Auth isn't Supabase Auth.</b> BillMaker uses its own OTP + JWT, so client accounts are ordinary rows — there's no 50k monthly-active-user cap; storage and email throughput are the real limits.</li>
+      <li><b>Mobile is offline-first.</b> Devices work with no connection and sync when back online, so brief connection spikes don't break anything — the 200-connection number is about <em>simultaneously live</em> devices.</li>
+      <li><b>Supabase free projects pause</b> after ~7 days of inactivity — fine for a live shop, worth knowing for a demo.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <b>BillMaker</b> — open-source billing for small shops. Figures reflect provider free tiers at time of writing; check each provider for current limits. See <b>SETUP.md</b> and <b>DEPLOYMENT.md</b> in the repo to stand up your own.
+  </footer>
+
+</div>
+</body>
+</html>

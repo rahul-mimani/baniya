@@ -67,6 +67,11 @@ Full step-by-step (accounts, credentials, SQL, deploy) is in
 5. Build the **mobile app** (`npm run apk`) and enter your Firebase config + shop
    code in Settings.
 
+For **production hosting** — portal → Vercel, worker → Cloudflare, custom domains,
+and wiring them together — see **[DEPLOYMENT.md](./DEPLOYMENT.md)**. For capacity
+on the free tiers (how many mobile users / admins / clients), see
+[docs/scale.html](./docs/scale.html).
+
 ## Configuration model
 
 There are no secrets in source. Each service reads its own config:

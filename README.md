@@ -67,6 +67,11 @@ Full step-by-step (accounts, credentials, SQL, deploy) is in
 5. Build the **mobile app** (`npm run apk`) and enter your Firebase config + shop
    code in Settings.
 
+For **production hosting** (portal → Vercel, worker → Cloudflare, custom domains),
+see [billmaker/DEPLOYMENT.md](./billmaker/DEPLOYMENT.md). For **free-tier capacity**
+(how many mobile users / admins / clients, and who it's for), see
+[billmaker/docs/scale.html](./billmaker/docs/scale.html).
+
 ## Configuration model
 
 There are no secrets in source. Each service reads its own config:
