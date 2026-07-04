@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BillMaker — Open-source billing for small shops</title>
+<meta name="description" content="BillMaker is an open-source, offline-first billing & invoicing system for small shops, with cloud sync, an admin + client web portal, and a mobile app. Self-host on free tiers." />
+
+<!-- Social share card. Forking? Replace the rahul-mimani.github.io/baniya URLs with your own Pages URL. -->
+<link rel="canonical" href="https://rahul-mimani.github.io/baniya/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BillMaker" />
+<meta property="og:title" content="BillMaker — Open-source billing for small shops" />
+<meta property="og:description" content="Offline-first billing & invoicing with cloud sync, admin + client portals, and a mobile app. Self-host on free tiers in about an hour." />
+<meta property="og:url" content="https://rahul-mimani.github.io/baniya/" />
+<meta property="og:image" content="https://rahul-mimani.github.io/baniya/og-home.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="BillMaker — open-source billing for small shops. Firebase, Supabase, Cloudflare, Capacitor. MIT licensed." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BillMaker — Open-source billing for small shops" />
+<meta name="twitter:description" content="Offline-first billing with cloud sync, admin + client portals, and a mobile app. Self-host on free tiers." />
+<meta name="twitter:image" content="https://rahul-mimani.github.io/baniya/og-home.png" />
+<style>
+  :root {
+    --bg:#f6f8fb; --panel:#fff; --panel-2:#f1f5f9; --ink:#0f172a; --muted:#5b6b82;
+    --faint:#8494a8; --line:#e2e8f0; --accent:#0284c7; --accent-soft:#e0f2fe;
+    --accent-ink:#075985; --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.05);
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0a0f1a; --panel:#111a2b; --panel-2:#16223a; --ink:#e6edf6; --muted:#9fb0c6;
+    --faint:#6b7d96; --line:#24334c; --accent:#38bdf8; --accent-soft:#0b2740;
+    --accent-ink:#9cd8f7; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="light"]{--bg:#f6f8fb;--panel:#fff;--panel-2:#f1f5f9;--ink:#0f172a;--muted:#5b6b82;--faint:#8494a8;--line:#e2e8f0;--accent:#0284c7;--accent-soft:#e0f2fe;--accent-ink:#075985;--shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.05);}
+  :root[data-theme="dark"]{--bg:#0a0f1a;--panel:#111a2b;--panel-2:#16223a;--ink:#e6edf6;--muted:#9fb0c6;--faint:#6b7d96;--line:#24334c;--accent:#38bdf8;--accent-soft:#0b2740;--accent-ink:#9cd8f7;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:940px;margin:0 auto;padding:clamp(24px,5vw,60px) clamp(18px,4vw,40px) 72px;}
+  a{color:var(--accent);text-underline-offset:2px;}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+
+  /* hero */
+  .brandrow{display:flex;align-items:center;gap:14px;margin-bottom:30px;}
+  .logo{width:52px;height:52px;flex:none;}
+  .brandrow .name{font-size:21px;font-weight:700;letter-spacing:-.01em;}
+  .brandrow .lic{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint);border:1px solid var(--line);padding:4px 10px;border-radius:999px;}
+  h1{font-size:clamp(32px,6vw,52px);line-height:1.03;letter-spacing:-.025em;margin:0 0 18px;text-wrap:balance;font-weight:700;}
+  h1 .g{color:var(--accent);}
+  .lede{font-size:clamp(16px,2.3vw,20px);color:var(--muted);max-width:60ch;margin:0 0 28px;}
+  .lede b{color:var(--ink);font-weight:600;}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:11px 18px;border-radius:10px;text-decoration:none;border:1px solid var(--line);}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .btn.ghost{background:var(--panel);color:var(--ink);}
+  .btn.primary:hover{filter:brightness(1.06);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  section{margin-top:clamp(40px,6vw,60px);}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media (max-width:660px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);}
+  .card h3{margin:0 0 6px;font-size:16px;display:flex;align-items:center;gap:9px;}
+  .card h3 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:3px 8px;border-radius:6px;}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  .links{display:flex;flex-direction:column;gap:10px;}
+  .lrow{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;box-shadow:var(--shadow);text-decoration:none;color:inherit;}
+  .lrow:hover{border-color:var(--accent);}
+  .lrow .t{font-weight:600;color:var(--ink);}
+  .lrow .d{font-size:13.5px;color:var(--muted);}
+  .lrow .arw{margin-left:auto;color:var(--accent);font-family:var(--mono);}
+
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .pill{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--panel-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;}
+
+  footer{margin-top:clamp(44px,6vw,64px);padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--faint);display:flex;flex-wrap:wrap;gap:6px 18px;}
+  footer a{color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brandrow">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="8" fill="#0284c7"/>
+        <rect x="10" y="7" width="12" height="18" rx="1.5" fill="#fff"/>
+        <rect x="12.5" y="11" width="7" height="1.6" rx=".8" fill="#0284c7"/>
+        <rect x="12.5" y="14.5" width="7" height="1.6" rx=".8" fill="#0284c7"/>
+        <rect x="12.5" y="18" width="4.5" height="1.6" rx=".8" fill="#0284c7"/>
+      </svg>
+      <span class="name">BillMaker</span>
+      <span class="lic">MIT · open source</span>
+    </div>
+
+    <h1>Billing for small shops, <span class="g">built to run on nothing.</span></h1>
+    <p class="lede">An <b>offline-first</b> billing &amp; invoicing system: a mobile app your staff use to make bills with or without signal, an <b>admin portal</b> to manage catalog and customers, and a <b>client portal</b> where customers view their own bills. It syncs through Firebase, Supabase and Cloudflare — and <b>self-hosts on free tiers</b>.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/rahul-mimani/baniya">View on GitHub →</a>
+      <a class="btn ghost" href="./scale.html">Capacity &amp; scale</a>
+    </div>
+  </header>
+
+  <section>
+    <p class="kicker">What's inside</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Mobile app <span class="tag">Capacitor</span></h3>
+        <p>The billing app staff use. Local-first — works fully offline, syncs when back online. Ships as an Android APK.</p>
+      </div>
+      <div class="card">
+        <h3>auth-service <span class="tag">Cloudflare</span></h3>
+        <p>A Worker handling OTP login, sessions, and the cron that mirrors Firestore to a queryable replica.</p>
+      </div>
+      <div class="card">
+        <h3>Web portal <span class="tag">Vercel</span></h3>
+        <p>One app, two roles: an admin console for the shop, and a client portal where customers see bills &amp; deals.</p>
+      </div>
+      <div class="card">
+        <h3>Bring your own backend <span class="tag">no lock-in</span></h3>
+        <p>Point it at your own Firebase &amp; Supabase projects. No secrets in source; every value is your own config.</p>
+      </div>
+    </div>
+    <div class="stack">
+      <span class="pill">Firebase Firestore</span>
+      <span class="pill">Supabase</span>
+      <span class="pill">Cloudflare Workers</span>
+      <span class="pill">React + Vite</span>
+      <span class="pill">Capacitor / Android</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Get started</p>
+    <div class="links">
+      <a class="lrow" href="https://github.com/rahul-mimani/baniya/blob/main/billmaker/SETUP.md">
+        <span><span class="t">Setup guide</span> &nbsp;<span class="d">— stand up your own instance step by step</span></span><span class="arw">SETUP.md ↗</span>
+      </a>
+      <a class="lrow" href="https://github.com/rahul-mimani/baniya/blob/main/billmaker/DEPLOYMENT.md">
+        <span><span class="t">Deployment guide</span> &nbsp;<span class="d">— portal → Vercel, worker → Cloudflare, custom domains</span></span><span class="arw">DEPLOYMENT.md ↗</span>
+      </a>
+      <a class="lrow" href="./scale.html">
+        <span><span class="t">Capacity &amp; scale</span> &nbsp;<span class="d">— how many users it serves, and who it's for</span></span><span class="arw">scale.html →</span>
+      </a>
+      <a class="lrow" href="https://github.com/rahul-mimani/baniya">
+        <span><span class="t">Source code</span> &nbsp;<span class="d">— the full monorepo on GitHub</span></span><span class="arw">GitHub ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 BillMaker — MIT licensed.</span>
+    <a href="https://github.com/rahul-mimani/baniya">GitHub</a>
+    <a href="./scale.html">Capacity</a>
+    <span>Offline-first billing for small shops.</span>
+  </footer>
+
+</div>
+</body>
+</html>
