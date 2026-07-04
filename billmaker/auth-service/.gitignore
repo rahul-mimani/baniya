@@ -1,0 +1,12 @@
+# Never commit secrets (but DO commit the *.example templates)
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Build / deps
+node_modules/
+dist/
+.wrangler/
+.dev.vars.prod
+.dev.vars.dev

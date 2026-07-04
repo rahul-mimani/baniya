@@ -1,0 +1,14 @@
+# Android SDK location — used by Gradle when building the APK.
+#
+# This file (as `local.properties`, without `.example`) is machine-specific and
+# gitignored — never commit it. Create it one of two ways:
+#   1. Open the `android/` folder in Android Studio once — it generates
+#      local.properties automatically, OR
+#   2. Copy this file to `android/local.properties` and set the path to your SDK,
+#      OR set the ANDROID_HOME env var instead of using this file.
+#
+# Typical SDK locations:
+#   macOS:   /Users/<you>/Library/Android/sdk
+#   Linux:   /home/<you>/Android/Sdk
+#   Windows: C:\\Users\\<you>\\AppData\\Local\\Android\\Sdk
+sdk.dir=/path/to/your/Android/sdk

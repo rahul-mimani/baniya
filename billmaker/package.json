@@ -1,0 +1,40 @@
+{
+  "name": "firestore-bill-manager",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "apk": "node scripts/buildApk.js",
+    "icons": "node scripts/generateIcons.js"
+  },
+  "dependencies": {
+    "@capacitor-community/file-opener": "^7.0.1",
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/app": "^7.1.2",
+    "@capacitor/app-launcher": "^7.0.4",
+    "@capacitor/browser": "^7.0.5",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/filesystem": "^7.1.4",
+    "@capacitor/share": "^7.0.4",
+    "@supabase/supabase-js": "^2.45.0",
+    "firebase": "^11.10.0",
+    "framer-motion": "^12.23.24",
+    "fuse.js": "^7.1.0",
+    "lucide-react": "^0.469.0",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "sharp": "^0.34.5",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

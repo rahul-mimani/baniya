@@ -1,0 +1,7 @@
+node_modules/
+# Firebase service-account keys — NEVER commit these
+*-sa.json
+sa.json
+*-firebase-sa.json
+service-account*.json
+firebase-adminsdk*.json

@@ -1,0 +1,13 @@
+{
+  "name": "billmaker-migration",
+  "version": "1.0.0",
+  "description": "Optional Firebase admin utilities to clone or delete a shop's Firestore data.",
+  "type": "commonjs",
+  "scripts": {
+    "clone": "node clone-firebase-cross-project.mjs",
+    "delete-shop": "node delete-shop.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.10.0"
+  }
+}

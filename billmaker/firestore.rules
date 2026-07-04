@@ -1,0 +1,71 @@
+// BillMaker Firestore Security Rules
+// =============================================================================
+// Paste into Firebase Console → Firestore Database → Rules → Publish.
+//
+// Threat model:
+//   - Mobile + portal use anonymous auth, read/write under their shop path
+//   - The auth-service cron uses a service account that bypasses these rules
+//   - Clients never touch Firestore directly (they go through auth-service)
+//
+// Protections:
+//   1. Require authentication for any access
+//   2. Restrict to whitelisted collections under /shops/{shop}/...
+//   3. Disallow listing the top-level /shops collection (must know the code)
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Shop-scoped data. Only whitelisted collections under a known shop code.
+    match /shops/{shopCode} {
+      // Block reading the shop doc itself or enumerating /shops.
+      allow read: if false;
+      allow write: if false;
+
+      match /{collection}/{docId} {
+        allow read, write: if isAuthed() && isAllowedCollection(collection);
+      }
+    }
+
+    // Everything else — denied.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+
+    // Helpers
+    function isAuthed() {
+      return request.auth != null && request.auth.uid is string;
+    }
+
+    // Collections we know about. `customers` and `products` are mobile-canonical
+    // raw collections — mobile auto-creates entries for autocomplete and bill
+    // creation. They must stay whitelisted or mobile writes fail.
+    //
+    // `portal_deletions` is written by the portal when admin archives a
+    // customer (tombstones listing what mobile should remove). Mobile
+    // subscribes to it — must be readable.
+    //
+    // `portal_bills_meta` was retired on 2026-05-22 — acknowledged + acknowledgedAt
+    // now live on the bill doc itself. The collection has been purged.
+    // `payments` retired on Deploy 5 — payments now live inside
+    // bills/<id>.payments[]. Removed from allowed list so any stray writer
+    // gets blocked instead of silently re-creating the collection.
+    function isAllowedCollection(c) {
+      return c in [
+        'bills',
+        'profiles',
+        '_meta',
+        'customers',
+        'products',
+        'portal_customers',
+        'portal_products',
+        'portal_labels',
+        'portal_classes',
+        'portal_deals',
+        'portal_deletions'
+      ];
+    }
+  }
+}

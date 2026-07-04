@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>BillMaker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    @media print {
+        /* Print backgrounds & colors (Android WebView / Chromium) */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Reset the screen-only slate background */
+        html, body {
+            background: #ffffff !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Hide app chrome */
+        header, nav, .no-print {
+            display: none !important;
+        }
+
+        /* Reset Tailwind container/max-width so it fills the printable A4 area */
+        main, .container, .max-w-4xl, .max-w-3xl, .max-w-lg, .max-w-md {
+            padding: 0 !important;
+            margin: 0 !important;
+            max-width: none !important;
+            width: 100% !important;
+        }
+
+        /* Single-bill summary — fills the printable A4 area */
+        .printable-bill {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            page-break-after: always;
+            font-family: sans-serif;
+            font-size: 11pt;
+            box-sizing: border-box;
+        }
+        .printable-bill:last-of-type {
+            page-break-after: auto;
+        }
+
+        /* Customer statement (blotter) — full A4 with auto-paginated content. */
+        .blotter-printable {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            font-family: sans-serif;
+            font-size: 10pt;
+            box-sizing: border-box;
+        }
+        .blotter-printable .bill-block {
+            page-break-inside: avoid;
+        }
+    }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-amber-50 text-slate-800">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 199 89% 48%;            /* sky-500 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 226 100% 67%;          /* indigo */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 271 91% 65%;              /* violet */
+    --accent-foreground: 0 0% 100%;
+    --success: 152 76% 40%;             /* emerald */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;              /* amber */
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;       /* rose */
+    --destructive-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 89% 48%;
+    --radius: 0.75rem;
+  }
+
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  /* Scrollbar polish */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+}
+
+/* Shimmer for skeleton placeholders */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Smooth animations */
+* { @apply transition-colors; transition-duration: 150ms; }

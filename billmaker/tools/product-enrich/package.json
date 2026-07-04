@@ -1,0 +1,17 @@
+{
+  "name": "billmaker-product-enrich",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local web tool to enrich portal_products with descriptions + images from web search.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "firebase-admin": "^12.4.0"
+  }
+}

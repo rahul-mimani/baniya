@@ -1,0 +1,46 @@
+# Generated APKs from `npm run apk`
+billmaker-v*.apk
+
+# Node
+node_modules/
+
+# Vite build output
+dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+
+# Local env / secrets — never commit any of these.
+# NOTE: *.example files are the committed templates and are NOT ignored.
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
+.dev.vars
+.dev.vars.*
+*-firebase-sa.json
+service-account.json
+service-account*.json
+firebase-adminsdk*.json
+prod.json
+
+# Firebase CLI project binding (contains your project id) — use .firebaserc.example
+.firebaserc
+
+# Logs & editor artifacts
+*.log
+firebase-debug.log
+*.swp
+*.swo
+
+# billmaker-migration/ publishes its (generic) scripts; its own .gitignore
+# blocks node_modules + any service-account JSON keys.
+
+# Android build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/local.properties

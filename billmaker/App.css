@@ -1,0 +1,129 @@
+.app-header {
+  /* Extra 6px above the safe-area inset so logo + actions don't sit flush
+     against the front camera / status bar on Android phones. */
+  padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
+  /* Some Android phones place a camera or rounded corner on the left/right
+     edges; honour the safe-area side insets so action buttons stay clear. */
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.app-main {
+  padding-top: 24px;
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 112px);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  /* Dark navy anchor — pairs with the cream content area */
+  background: #0c4a6e; /* sky-900 */
+  border-top: 1px solid #0c4a6e;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-shadow: 0 -2px 14px rgba(12, 74, 110, 0.25);
+  z-index: 20;
+}
+
+.tab-button {
+  flex: 1;
+  position: relative;
+  background: none;
+  border: none;
+  /* Tighter — was 10px/8px */
+  padding: 5px 0 4px;
+  cursor: pointer;
+  font-size: 10px;
+  /* Soft light-blue for inactive tabs against the navy nav */
+  color: #bae6fd; /* sky-200 */
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #ffffff;
+}
+
+.tab-button.active {
+  color: #ffffff;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Tighter — was 4 */
+  gap: 2px;
+}
+
+.tab-content svg {
+  /* Smaller icons — was 22 */
+  height: 18px;
+  width: 18px;
+}
+
+.tab-underline {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  right: 30%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 0 0 3px 3px;
+}
+
+/* Center FAB slot in bottom nav */
+.fab-slot {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* Cream-bordered light-blue FAB pops against the navy nav */
+.fab {
+  /* Slightly smaller to match the tighter nav — was 58 */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0284c7; /* sky-600 */
+  color: white;
+  border: 3px solid #fffbeb; /* cream rim matches body bg */
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.45), 0 2px 4px rgba(2, 132, 199, 0.25);
+  /* Less negative translate now that nav is shorter — was -22 */
+  transform: translateY(-16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 0;
+}
+
+.fab:active {
+  transform: translateY(-16px) scale(0.92);
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.35);
+}
+
+.fab svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
+}
+
+.bottom-fab {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
+  right: 20px;
+  z-index: 15;
+}
+
+@media print {
+  .app-main {
+    padding-bottom: 0 !important;
+  }
+}

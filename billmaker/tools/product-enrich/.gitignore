@@ -1,0 +1,16 @@
+# Local secrets — NEVER commit
+.env
+.env.local
+prod.json
+serviceAccount.json
+*-service-account*.json
+firebase-adminsdk*.json
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
