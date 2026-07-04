@@ -58,7 +58,21 @@ const raw = readFileSync(envPath, 'utf8');
 const found = new Map();
 for (const line of raw.split('\n')) {
   const m = line.match(/^([A-Z_][A-Z0-9_]*)\s*=\s*(.*)$/);
-  if (m) found.set(m[1], m[2].trim());
+  if (m) {
+    let val = m[2].trim();
+    // Strip ONE layer of surrounding quotes (dotenv-style). Without this, a
+    // quoted value like FIREBASE_PRIVATE_KEY="-----BEGIN...\n...-----END...\n"
+    // would upload the literal " characters, corrupting the key (atob fails
+    // with "invalid base64-encoded data" when the worker parses it).
+    if (
+      val.length >= 2 &&
+      ((val[0] === '"' && val[val.length - 1] === '"') ||
+        (val[0] === "'" && val[val.length - 1] === "'"))
+    ) {
+      val = val.slice(1, -1);
+    }
+    found.set(m[1], val);
+  }
 }
 
 for (const key of SECRETS) {
