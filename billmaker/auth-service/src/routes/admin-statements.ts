@@ -89,7 +89,9 @@ app.post('/send', async c => {
     }
   }
 
-  const logger = createEventLogger(c.env, c.executionCtx, c.env.SHOP_CODE);
+  // Hono's ExecutionContext type and @cloudflare/workers-types' ExecutionContext<unknown>
+  // diverge across versions; cast bridges them (identical at runtime).
+  const logger = createEventLogger(c.env, c.executionCtx as unknown as ExecutionContext, c.env.SHOP_CODE);
 
   // Send sequentially. Brevo doesn't penalize for back-to-back calls at this
   // volume (20 max). Sequential makes per-item error reporting clean.
