@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Baniya — Screenshots from a live deployment</title>
+<meta name="description" content="Screenshots of Baniya running in a real shop — admin console, client portal, and the mobile billing app. Customer data is blurred for privacy." />
+<link rel="canonical" href="https://rahul-mimani.github.io/baniya/gallery.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Baniya" />
+<meta property="og:title" content="Baniya — screenshots from a live deployment" />
+<meta property="og:description" content="Admin console, client portal, and the mobile billing app, running in a real shop." />
+<meta property="og:url" content="https://rahul-mimani.github.io/baniya/gallery.html" />
+<meta property="og:image" content="https://rahul-mimani.github.io/baniya/og-home.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://rahul-mimani.github.io/baniya/og-home.png" />
+<style>
+  :root {
+    --bg:#f6f8fb; --panel:#fff; --panel-2:#f1f5f9; --ink:#0f172a; --muted:#5b6b82;
+    --faint:#8494a8; --line:#e2e8f0; --accent:#0284c7; --accent-soft:#e0f2fe;
+    --shadow:0 1px 2px rgba(15,23,42,.05),0 10px 24px rgba(15,23,42,.06);
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0a0f1a; --panel:#111a2b; --panel-2:#16223a; --ink:#e6edf6; --muted:#9fb0c6;
+    --faint:#6b7d96; --line:#24334c; --accent:#38bdf8; --accent-soft:#0b2740;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px rgba(0,0,0,.4);
+  }}
+  :root[data-theme="light"]{--bg:#f6f8fb;--panel:#fff;--panel-2:#f1f5f9;--ink:#0f172a;--muted:#5b6b82;--faint:#8494a8;--line:#e2e8f0;--accent:#0284c7;--accent-soft:#e0f2fe;--shadow:0 1px 2px rgba(15,23,42,.05),0 10px 24px rgba(15,23,42,.06);}
+  :root[data-theme="dark"]{--bg:#0a0f1a;--panel:#111a2b;--panel-2:#16223a;--ink:#e6edf6;--muted:#9fb0c6;--faint:#6b7d96;--line:#24334c;--accent:#38bdf8;--accent-soft:#0b2740;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px rgba(0,0,0,.4);}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(16px,4vw,36px) 72px;}
+  a{color:var(--accent);}
+
+  .brandrow{display:flex;align-items:center;gap:12px;margin-bottom:26px;}
+  .logo{width:44px;height:44px;flex:none;}
+  .brandrow .name{font-size:19px;font-weight:700;}
+  .brandrow .back{margin-left:auto;font-size:14px;font-weight:600;text-decoration:none;}
+  h1{font-size:clamp(26px,4.5vw,40px);letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance;}
+  .lede{font-size:clamp(15px,2vw,18px);color:var(--muted);max-width:64ch;margin:0;}
+  .lede b{color:var(--ink);}
+
+  .privacy{display:flex;gap:10px;align-items:flex-start;margin:22px 0 0;padding:13px 16px;border:1px solid var(--line);
+    background:var(--panel-2);border-radius:12px;font-size:13.5px;color:var(--muted);max-width:70ch;}
+  .privacy b{color:var(--ink);}
+
+  h2{font-size:15px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+    margin:44px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));}
+  .grid.phones{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+  figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+  figure a{display:block;line-height:0;}
+  figure img{width:100%;height:auto;display:block;background:var(--panel-2);}
+  figcaption{padding:11px 14px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);line-height:1.35;}
+  figcaption b{color:var(--ink);font-weight:600;}
+  figure:hover{border-color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--faint);display:flex;gap:16px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandrow">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+      <rect x="2" y="2" width="28" height="28" rx="8" fill="#0284c7"/>
+      <rect x="10" y="7" width="12" height="18" rx="1.5" fill="#fff"/>
+      <rect x="12.5" y="11" width="7" height="1.6" rx=".8" fill="#0284c7"/>
+      <rect x="12.5" y="14.5" width="7" height="1.6" rx=".8" fill="#0284c7"/>
+      <rect x="12.5" y="18" width="4.5" height="1.6" rx=".8" fill="#0284c7"/>
+    </svg>
+    <span class="name">Baniya</span>
+    <a class="back" href="./index.html">← Home</a>
+  </div>
+
+  <h1>Baniya, running in a real shop</h1>
+  <p class="lede">These are screenshots from a <b>live deployment</b> — the same open-source Baniya, set up for an actual business. Below: the <b>admin console</b>, the <b>customer portal</b>, and the <b>mobile billing app</b>.</p>
+  <p class="privacy"><span>🔒</span><span><b>Privacy:</b> customer names, phone numbers, outstanding amounts, and email addresses are <b>blurred</b> throughout. The shop's own branding is shown with permission.</span></p>
+
+  <h2>Admin console</h2>
+  <div class="grid">
+    <figure><a href="./screenshots/03-admin-overview.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/03-admin-overview.jpg" alt="Admin overview dashboard"></a><figcaption><b>Overview</b> — revenue, outstanding, and live activity</figcaption></figure>
+    <figure><a href="./screenshots/04-admin-bills.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/04-admin-bills.jpg" alt="Admin bills list"></a><figcaption><b>Bills</b> — review and release each bill to the client portal</figcaption></figure>
+    <figure><a href="./screenshots/05-admin-customers.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/05-admin-customers.jpg" alt="Admin customers"></a><figcaption><b>Customers</b> — pricing classes and outstanding balances</figcaption></figure>
+    <figure><a href="./screenshots/06-admin-manage-customers.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/06-admin-manage-customers.jpg" alt="Manage customers"></a><figcaption><b>Manage customers</b> — merge duplicate names into one</figcaption></figure>
+    <figure><a href="./screenshots/07-admin-products.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/07-admin-products.jpg" alt="Product catalog"></a><figcaption><b>Products</b> — catalog with per-class pricing</figcaption></figure>
+    <figure><a href="./screenshots/08-admin-product-edit.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/08-admin-product-edit.jpg" alt="Edit product"></a><figcaption><b>Edit product</b> — pricing, labels, and images</figcaption></figure>
+    <figure><a href="./screenshots/09-admin-statements.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/09-admin-statements.jpg" alt="Customer statements"></a><figcaption><b>Statements</b> — email each customer a PDF of their bills</figcaption></figure>
+    <figure><a href="./screenshots/02-portal-login-otp.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/02-portal-login-otp.jpg" alt="Admin sign in"></a><figcaption><b>Sign in</b> — email one-time-code login</figcaption></figure>
+  </div>
+
+  <h2>Customer portal</h2>
+  <div class="grid">
+    <figure><a href="./screenshots/01-portal-login.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/01-portal-login.jpg" alt="Customer portal login"></a><figcaption><b>Sign in</b> — customers log in with their phone</figcaption></figure>
+    <figure><a href="./screenshots/10-client-home.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/10-client-home.jpg" alt="Client home"></a><figcaption><b>Home</b> — balance, tier, recent bills and deals</figcaption></figure>
+    <figure><a href="./screenshots/11-client-bills.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/11-client-bills.jpg" alt="Client bills"></a><figcaption><b>My bills</b> — every bill, paid and due</figcaption></figure>
+    <figure><a href="./screenshots/12-client-deals.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/12-client-deals.jpg" alt="Client deals"></a><figcaption><b>Deals &amp; offers</b> — priced for the customer's tier</figcaption></figure>
+  </div>
+
+  <h2>Mobile app</h2>
+  <div class="grid phones">
+    <figure><a href="./screenshots/13-mobile-home.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/13-mobile-home.jpg" alt="Mobile home"></a><figcaption><b>Home</b> — today's totals &amp; recent bills</figcaption></figure>
+    <figure><a href="./screenshots/15-mobile-new-bill.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/15-mobile-new-bill.jpg" alt="Create bill"></a><figcaption><b>Create bill</b></figcaption></figure>
+    <figure><a href="./screenshots/17-mobile-bill-items.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/17-mobile-bill-items.jpg" alt="Bill items"></a><figcaption><b>Line items</b> — with last-used prices</figcaption></figure>
+    <figure><a href="./screenshots/18-mobile-save-bill.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/18-mobile-save-bill.jpg" alt="Save bill"></a><figcaption><b>Preview &amp; save</b></figcaption></figure>
+    <figure><a href="./screenshots/14-mobile-search.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/14-mobile-search.jpg" alt="Search"></a><figcaption><b>Search</b> — customers &amp; bills</figcaption></figure>
+    <figure><a href="./screenshots/21-mobile-payments.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/21-mobile-payments.jpg" alt="Payments"></a><figcaption><b>Payments</b> — outstanding &amp; dues</figcaption></figure>
+    <figure><a href="./screenshots/19-mobile-payment-detail.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/19-mobile-payment-detail.jpg" alt="Payment detail"></a><figcaption><b>Bill balance</b></figcaption></figure>
+    <figure><a href="./screenshots/20-mobile-add-payment.jpg" target="_blank" rel="noopener"><img loading="lazy" src="./screenshots/20-mobile-add-payment.jpg" alt="Record payment"></a><figcaption><b>Record payment</b> — cash / UPI / card</figcaption></figure>
+  </div>
+
+  <footer>
+    <a href="./index.html">← Baniya home</a>
+    <a href="./scale.html">Capacity &amp; scale</a>
+    <a href="https://github.com/rahul-mimani/baniya" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+</div>
+</body>
+</html>
