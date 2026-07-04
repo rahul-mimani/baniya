@@ -1,5 +1,5 @@
 /**
- * Web-portal Firestore sync — connects to the same Firestore that the BillMaker
+ * Web-portal Firestore sync — connects to the same Firestore that the Baniya
  * mobile app writes to. Mobile's collections (per shopCode):
  *   - bills        (canonical — products + customers are embedded here)
  *   - payments     (per-bill payment events)

@@ -211,7 +211,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ mode, product, open, onClos
           <DialogBody>
             {product?.source === 'billmaker' && (
               <div className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs text-amber-900">
-                ⚡ This product was auto-imported from BillMaker mobile. Fill in description, prices, class flags, and images to publish it.
+                ⚡ This product was auto-imported from Baniya mobile. Fill in description, prices, class flags, and images to publish it.
               </div>
             )}
 

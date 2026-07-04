@@ -49,7 +49,7 @@ app.get('/', c => c.json({ service: 'billmaker-auth', status: 'ok' }));
 app.get('/healthz', c => c.json({ ok: true, ts: new Date().toISOString() }));
 
 app.route('/auth', authRoutes);
-// Phase B mobile (BillMaker shopkeeper app) endpoints. Mounted under
+// Phase B mobile (Baniya shopkeeper app) endpoints. Mounted under
 // /mobile to keep them strictly separate from the OTP-auth flows in /auth.
 app.route('/mobile', mobileRoutes);
 app.route('/client', clientRoutes);

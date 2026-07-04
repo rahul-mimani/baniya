@@ -17,7 +17,7 @@ const scheduleBillCountsRefresh = (): void => { /* no-op (post-aggregate-increme
 export const MAX_CLASSES = 5;
 
 /**
- * Same slugify rules as BillMaker mobile (storage/customerStorage.ts and
+ * Same slugify rules as Baniya mobile (storage/customerStorage.ts and
  * storage/productStorage.ts) — kebab-case, alphanumeric only, capped at 80 chars.
  * Matters because mobile uses this as the doc id in the canonical `customers`
  * and `products` collections; if the portal slugifies differently we get
@@ -45,7 +45,7 @@ const normalizeProductName = (s: string): string =>
 
 /**
  * Push a customer name to the canonical `customers/<slug>` collection that
- * BillMaker mobile reads from for autocomplete + search. Idempotent: same
+ * Baniya mobile reads from for autocomplete + search. Idempotent: same
  * name → same doc → merge-write keeps `updatedAt` fresh without duplicating.
  */
 const syncCustomerNameToMobile = (name: string): void => {
@@ -78,7 +78,7 @@ const syncProductNameToMobile = (name: string): void => {
  *
  * Two kinds of data live here:
  *  - Firestore-derived: bills, payments, raw customer/product names. These
- *    get replaced/merged whenever the BillMaker mobile Firestore listener
+ *    get replaced/merged whenever the Baniya mobile Firestore listener
  *    fires.
  *  - Admin enrichments: customer class/GST/phone, product descriptions/prices/
  *    images, labels, deals. Never overwritten by Firestore — those are
@@ -663,7 +663,7 @@ export const addCustomer = (input: Omit<Customer, 'id' | 'createdAt'>) => {
   store.customers.push(customer);
   notify();
   void pushPortalDoc('portal_customers', customer.id, customer);
-  // Also publish to the canonical `customers/<slug>` collection so BillMaker
+  // Also publish to the canonical `customers/<slug>` collection so Baniya
   // mobile's search/autocomplete picks it up.
   syncCustomerNameToMobile(customer.name);
   // Atomic increment so Overview "Customers" tile reflects immediately

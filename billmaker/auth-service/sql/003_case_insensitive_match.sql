@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — case-insensitive customer name matching
+-- Baniya Auth Service — case-insensitive customer name matching
 -- ============================================================================
 -- Run this ONCE after 002_replica_schema.sql.
 --

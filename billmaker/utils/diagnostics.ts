@@ -209,7 +209,7 @@ export const downloadLogs = async (): Promise<{ uri: string; fileName: string }>
   try {
     const { Share } = await import('@capacitor/share');
     await Share.share({
-      title: 'BillMaker logs',
+      title: 'Baniya logs',
       text: 'Save to Downloads or share to a developer.',
       url: uri,
       dialogTitle: `Save ${fileName}`,

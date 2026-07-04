@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — bill reprint requests
+-- Baniya Auth Service — bill reprint requests
 -- ============================================================================
 -- Run this ONCE after 005_quote_requests.sql.
 --

@@ -39,8 +39,7 @@ export const LogoMark: React.FC<LogoProps> = ({ size = 40, className }) => (
 export const LogoWordmark: React.FC<{ className?: string }> = ({ className }) => (
   <p className={className}>
     <span className="bg-gradient-to-r from-sky-500 via-primary to-accent bg-clip-text text-transparent">
-      Bill
+      Baniya
     </span>
-    <span className="text-foreground">Maker</span>
   </p>
 );

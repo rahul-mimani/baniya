@@ -1,4 +1,4 @@
-# BillMaker — Production Deployment (Vercel + Cloudflare)
+# Baniya — Production Deployment (Vercel + Cloudflare)
 
 This guide takes a working local setup (see [SETUP.md](./SETUP.md) — Firebase,
 Supabase, Brevo done) and deploys the two hosted pieces to production:

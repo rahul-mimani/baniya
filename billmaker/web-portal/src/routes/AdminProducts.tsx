@@ -244,7 +244,7 @@ const AdminProducts: React.FC = () => {
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Products</h1>
           <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-            Catalog with Class A / B / C pricing. Products from BillMaker mobile auto-import here as drafts —
+            Catalog with Class A / B / C pricing. Products from Baniya mobile auto-import here as drafts —
             fill in details, then toggle visibility to publish to clients.
           </p>
         </div>
@@ -268,7 +268,7 @@ const AdminProducts: React.FC = () => {
           <CardContent className="p-4 flex items-start gap-3">
             <Sparkles className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-amber-900">{fromBillmakerCount} product{fromBillmakerCount === 1 ? '' : 's'} auto-imported from BillMaker</p>
+              <p className="text-sm font-bold text-amber-900">{fromBillmakerCount} product{fromBillmakerCount === 1 ? '' : 's'} auto-imported from Baniya</p>
               <p className="text-xs text-amber-800 mt-0.5">
                 They appear here without descriptions or prices. Edit each to enrich it before the client portal will show them.
               </p>
@@ -302,7 +302,7 @@ const AdminProducts: React.FC = () => {
           { v: 'all', label: 'All' },
           { v: 'visible', label: 'Visible' },
           { v: 'pending', label: 'Pending' },
-          { v: 'billmaker', label: `From BillMaker (${fromBillmakerCount})` },
+          { v: 'billmaker', label: `From Baniya (${fromBillmakerCount})` },
         ] as const).map(f => (
           <button
             key={f.v}
@@ -379,7 +379,7 @@ const AdminProducts: React.FC = () => {
                           </span>
                         );
                       })}
-                      {isBillmakerDraft && <Badge variant="warning">From BillMaker</Badge>}
+                      {isBillmakerDraft && <Badge variant="warning">From Baniya</Badge>}
                       {!p.inStock && <Badge variant="destructive">Out of stock</Badge>}
                     </div>
                     <p className="font-bold text-foreground truncate">{p.name}</p>

@@ -115,7 +115,7 @@ export interface Payment {
   createdByProfileName?: string | null;
 }
 
-/** Represents a raw customer name that appeared in BillMaker — pending dedup-and-link. */
+/** Represents a raw customer name that appeared in Baniya — pending dedup-and-link. */
 export interface RawCustomer {
   rawName: string;
   billCount: number;

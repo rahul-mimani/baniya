@@ -681,7 +681,7 @@ const App: React.FC = () => {
           <div className="flex items-center gap-2.5">
             <AppLogoIcon size={32} />
             <div className="leading-tight">
-              <h1 className="text-base font-bold text-white">BillMaker</h1>
+              <h1 className="text-base font-bold text-white">Baniya</h1>
               <p className="text-[10px] uppercase tracking-wider text-sky-200 font-semibold">Billing &amp; Invoicing</p>
             </div>
           </div>

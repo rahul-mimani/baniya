@@ -189,7 +189,7 @@ const AdminStatements: React.FC = () => {
       periodLabel,
       periodFromIso: range.from,
       periodToIso: range.to,
-      shopName: store.business.name || 'BillMaker',
+      shopName: store.business.name || 'Baniya',
       shopAddress: store.business.address,
       shopPhone: store.business.phone,
       shopEmail: undefined, // contact email lives in shop record, not in store yet

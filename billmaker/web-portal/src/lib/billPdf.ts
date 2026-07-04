@@ -1,6 +1,6 @@
 // Single-bill PDF generator for the client portal.
 //
-// Mirrors the A4 layout produced by BillMaker mobile's
+// Mirrors the A4 layout produced by Baniya mobile's
 // `utils/generateBillsPDF.ts → drawA4Bill`, so a client downloading a PDF
 // from the web portal gets an identical-looking document. We port only the
 // pieces needed for one bill (no quarter-paper layout, no batch).
@@ -132,7 +132,7 @@ const drawA4Bill = (
   // Shop identity for the client-facing PDF — pulled from the business record
   // (_meta/business / /admin/shop), so the receipt always carries whatever the
   // shop has configured. Falls back to a generic name only if none is set.
-  const businessName = business?.name || 'BillMaker';
+  const businessName = business?.name || 'Baniya';
   const phone = business?.phone || '';
   const address = business?.address || '';
   const createdAt = bill.createdAt ? new Date(bill.createdAt) : new Date();

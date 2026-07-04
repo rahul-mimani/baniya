@@ -1,4 +1,4 @@
-# BillMaker
+# Baniya
 
 An open-source, **offline-first billing & invoicing system** for small shops, with
 optional cloud sync, a multi-device admin web portal, and a customer-facing
@@ -12,7 +12,7 @@ portal. Built to run on cheap/free tiers (Firebase, Supabase, Cloudflare, Vercel
 
 ## What's in the box
 
-BillMaker is a monorepo of four independently deployable pieces plus tooling:
+Baniya is a monorepo of four independently deployable pieces plus tooling:
 
 | Directory | What it is | Runs on |
 |---|---|---|

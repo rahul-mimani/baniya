@@ -71,7 +71,7 @@ export const signSupabaseRealtime = async (
 // ---------------------------------------------------------------------------
 // Firebase ID token verification.
 //
-// BillMaker mobile authenticates anonymously to Firebase (signInAnonymously).
+// Baniya mobile authenticates anonymously to Firebase (signInAnonymously).
 // That gives it an ID token signed by Google with RS256, claims:
 //   - iss: https://securetoken.google.com/<projectId>
 //   - aud: <projectId>

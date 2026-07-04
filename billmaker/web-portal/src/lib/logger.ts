@@ -1,6 +1,6 @@
 /**
  * In-memory ring-buffer logger used by the admin Logs page.
- * Mirrors the BillMaker mobile diagnostics module (utils/diagnostics.ts) so the
+ * Mirrors the Baniya mobile diagnostics module (utils/diagnostics.ts) so the
  * two apps speak the same vocabulary when triaging issues.
  */
 
@@ -65,7 +65,7 @@ export const formatLogEntry = (e: LogEntry): string => {
 
 export const exportLogsAsText = (): string => {
   const lines: string[] = [];
-  lines.push(`# BillMaker Portal — Logs`);
+  lines.push(`# Baniya Portal — Logs`);
   lines.push(`Generated: ${new Date().toISOString()}`);
   lines.push(`User agent: ${navigator.userAgent}`);
   lines.push('');

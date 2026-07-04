@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — quote requests
+-- Baniya Auth Service — quote requests
 -- ============================================================================
 -- Run this ONCE after 004_shop_settings.sql.
 --

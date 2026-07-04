@@ -203,9 +203,8 @@ const Login: React.FC = () => {
               </motion.div>
               <h1 className="text-2xl lg:text-3xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Love
-                </span>{' '}
-                <span className="text-slate-900">Enterprises</span>
+                  Baniya
+                </span>
               </h1>
               <motion.p
                 key={mode}

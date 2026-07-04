@@ -104,7 +104,7 @@ app.post('/send', async c => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          sender: { name: fromName || 'BillMaker', email: fromEmail },
+          sender: { name: fromName || 'Baniya', email: fromEmail },
           to: [{ email: it.to, name: it.name }],
           subject: it.subject,
           htmlContent: it.html,

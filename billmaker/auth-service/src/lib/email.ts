@@ -95,7 +95,7 @@ export const renderOtpEmail = (
   otp: string,
   ttlMinutes: number,
   recipientName: string,
-  shopName = 'BillMaker',
+  shopName = 'Baniya',
 ) => {
   const subject = `Your sign-in code: ${otp.slice(0, 3)}-…`;
   const safeOtp = escapeHtml(otp);

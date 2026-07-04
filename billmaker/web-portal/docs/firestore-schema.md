@@ -9,7 +9,7 @@ Three writers across the system:
 
 | Writer | Writes to | Must respect this schema? |
 |---|---|---|
-| BillMaker mobile (Capacitor app) | `bills`, `payments`, `customers`, `products`, `_meta/business` | YES |
+| Baniya mobile (Capacitor app) | `bills`, `payments`, `customers`, `products`, `_meta/business` | YES |
 | Web-portal (admin dashboard) | `portal_*`, `bills` (merge), `customers` (merge), `products` (merge) | YES |
 | Auth-service worker (Cloudflare) | `_meta/admin_aggregates`, `portal_customers.outstanding` (merge) | YES |
 

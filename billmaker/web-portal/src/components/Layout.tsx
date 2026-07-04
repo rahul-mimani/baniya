@@ -202,8 +202,7 @@ const Layout: React.FC = () => {
           <div className="flex items-center gap-2">
             <LogoMark size={32} className="shadow rounded-lg" />
             <p className="font-bold text-foreground text-sm">
-              <span className="bg-gradient-to-r from-sky-500 via-primary to-accent bg-clip-text text-transparent">Love</span>{' '}
-              Enterprises
+              <span className="bg-gradient-to-r from-sky-500 via-primary to-accent bg-clip-text text-transparent">Baniya</span>
               {role === 'admin' && (
                 <> · <span className="text-muted-foreground font-medium">Admin</span></>
               )}

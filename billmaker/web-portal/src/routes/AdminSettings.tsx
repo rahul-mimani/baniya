@@ -257,7 +257,7 @@ const AdminSettings: React.FC = () => {
           <SettingsIcon className="h-7 w-7 text-secondary" /> Settings
         </h1>
         <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-          Admin-only configuration. These credentials connect the web portal to the same Firestore your BillMaker mobile app uses.
+          Admin-only configuration. These credentials connect the web portal to the same Firestore your Baniya mobile app uses.
         </p>
       </header>
 
@@ -284,7 +284,7 @@ const AdminSettings: React.FC = () => {
                   The <strong>Manage Customers</strong> tab will pull raw names from this Firestore once live sync is wired.
                 </>
               ) : (
-                <>Enter your Firebase credentials + shop code below to enable cloud sync. Required for <strong>Manage Customers</strong> to pull data from BillMaker mobile.</>
+                <>Enter your Firebase credentials + shop code below to enable cloud sync. Required for <strong>Manage Customers</strong> to pull data from Baniya mobile.</>
               )}
             </p>
           </div>
@@ -571,7 +571,7 @@ const AdminSettings: React.FC = () => {
           </div>
           <div>
             <p className="font-bold">Shop Identifier</p>
-            <p className="text-xs text-muted-foreground">Must match the Shop Code you set in BillMaker mobile → Settings → My Business</p>
+            <p className="text-xs text-muted-foreground">Must match the Shop Code you set in Baniya mobile → Settings → My Business</p>
           </div>
         </div>
         <CardContent className="p-5">
@@ -1595,7 +1595,7 @@ const MaintenanceCard: React.FC = () => {
 
         {/* --- Phantom-creation safety toggle --- */}
         <div className="border-t pt-4">
-          <p className="text-sm font-semibold mb-1">Auto-create product drafts from BillMaker</p>
+          <p className="text-sm font-semibold mb-1">Auto-create product drafts from Baniya</p>
           <p className="text-xs text-muted-foreground mb-3 max-w-xl">
             When ON (default), product names that appear in mobile bills auto-create
             <code className="font-mono text-[10px] mx-0.5">portal_products</code> drafts you can then enrich.

@@ -1,4 +1,4 @@
-// /mobile/* — Phase B endpoints for the BillMaker shopkeeper app.
+// /mobile/* — Phase B endpoints for the Baniya shopkeeper app.
 //
 // Isolated from the existing /auth/* OTP flows on purpose: mobile has no
 // user-level authentication. It authenticates via a Firebase Anonymous ID

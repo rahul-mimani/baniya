@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — shop-level settings
+-- Baniya Auth Service — shop-level settings
 -- ============================================================================
 -- Run this ONCE after 003_case_insensitive_match.sql.
 --

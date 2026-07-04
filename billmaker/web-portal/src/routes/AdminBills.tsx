@@ -125,7 +125,7 @@ const AdminBills: React.FC = () => {
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Bills</h1>
             <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-              Bills entered in BillMaker mobile sync here. Toggle <strong>Release</strong> to make a bill visible in the client portal.
+              Bills entered in Baniya mobile sync here. Toggle <strong>Release</strong> to make a bill visible in the client portal.
             </p>
           </div>
           {!aggReady ? (

@@ -294,7 +294,7 @@ app.post('/request-otp', async c => {
 
   // Only send if there's a real user with a usable email
   if (user && isValidEmail(user.identifier)) {
-    const { subject, html, text } = renderOtpEmail(full, ttl, user.name, c.env.SHOP_NAME || c.env.EMAIL_FROM_NAME || 'BillMaker');
+    const { subject, html, text } = renderOtpEmail(full, ttl, user.name, c.env.SHOP_NAME || c.env.EMAIL_FROM_NAME || 'Baniya');
     c.executionCtx.waitUntil(
       sendEmail(c.env, { to: user.identifier, subject, html, text }).catch(err => {
         console.error('email send failed', { err: String(err) });

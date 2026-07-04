@@ -43,11 +43,11 @@ Open http://localhost:5173 and any email/password works.
 ## Architecture (when wired to Firebase)
 
 ```
-BillMaker mobile (existing Android APK)
+Baniya mobile (existing Android APK)
     │  pushes bills to Firestore
     ▼
 Firestore: shops/{shopCode}/
-    ├── bills/        ← BillMaker writes; Admin toggles `acknowledged`
+    ├── bills/        ← Baniya writes; Admin toggles `acknowledged`
     ├── customers/    ← Web admin adds; each has class + login UID
     ├── products/     ← Web admin manages catalog with class prices
     ├── deals/        ← Web admin creates; tags `visibleClasses`

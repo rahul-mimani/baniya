@@ -178,7 +178,7 @@ const buildEmail = (shopCode: string, alert: AlertContext, portalUrl?: string): 
   const startedAt = r?.startedAt ?? new Date().toISOString();
   const durationMs = r?.totalDurationMs ?? 0;
 
-  const subject = `[BillMaker] Worker errors — ${cron} (${group}) on ${shopCode}`;
+  const subject = `[Baniya] Worker errors — ${cron} (${group}) on ${shopCode}`;
 
   const errorSamples = r
     ? r.collections.filter(c => c.error).slice(0, 5).map(c =>
@@ -189,7 +189,7 @@ const buildEmail = (shopCode: string, alert: AlertContext, portalUrl?: string): 
       : '';
 
   const text = [
-    `BillMaker worker reported errors.`,
+    `Baniya worker reported errors.`,
     ``,
     `Shop:       ${shopCode}`,
     `Cron:       ${cron}`,
@@ -207,7 +207,7 @@ const buildEmail = (shopCode: string, alert: AlertContext, portalUrl?: string): 
   ].join('\n');
 
   const html = `
-    <h2>BillMaker worker errors</h2>
+    <h2>Baniya worker errors</h2>
     <table cellpadding="6" style="border-collapse:collapse;border:1px solid #ddd;">
       <tr><td><b>Shop</b></td><td><code>${shopCode}</code></td></tr>
       <tr><td><b>Cron</b></td><td><code>${cron}</code></td></tr>
@@ -356,7 +356,7 @@ const buildDigestEmail = (
   const oldestTs = errors[errors.length - 1]?.ts ?? '';
   const newestTs = errors[0]?.ts ?? '';
 
-  const subject = `[BillMaker] ${errorCount} worker error(s) on ${shopCode}`;
+  const subject = `[Baniya] ${errorCount} worker error(s) on ${shopCode}`;
 
   const samples = errors.slice(0, 5).map(e => {
     const cron = e.payload?.cron || 'unknown';
@@ -365,7 +365,7 @@ const buildDigestEmail = (
   }).join('\n');
 
   const text = [
-    `BillMaker worker reported ${errorCount} error(s) in the last 15 minutes.`,
+    `Baniya worker reported ${errorCount} error(s) in the last 15 minutes.`,
     ``,
     `Shop:    ${shopCode}`,
     `Oldest:  ${oldestTs}`,
@@ -379,7 +379,7 @@ const buildDigestEmail = (
   ].join('\n');
 
   const html = `
-    <h2>BillMaker worker errors</h2>
+    <h2>Baniya worker errors</h2>
     <p>${errorCount} error(s) detected in the last 15 minutes.</p>
     <table cellpadding="6" style="border-collapse:collapse;border:1px solid #ddd;">
       <tr><td><b>Shop</b></td><td><code>${shopCode}</code></td></tr>

@@ -1,6 +1,6 @@
--- Phase B / Task 2: Realtime + RLS for BillMaker mobile.
+-- Phase B / Task 2: Realtime + RLS for Baniya mobile.
 --
--- Mobile (BillMaker shopkeeper app) connects directly to Supabase Realtime
+-- Mobile (Baniya shopkeeper app) connects directly to Supabase Realtime
 -- using a 15-minute JWT minted by the auth-service's /auth/realtime-token
 -- endpoint after Firebase ID token verification.
 --

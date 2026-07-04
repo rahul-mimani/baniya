@@ -1,4 +1,4 @@
-// Supabase Realtime read channel for BillMaker mobile (Phase B).
+// Supabase Realtime read channel for Baniya mobile (Phase B).
 //
 // Mobile READS via Supabase Realtime instead of Firestore subscriptions
 // because (a) Firestore subscriptions re-deliver full snapshots on every

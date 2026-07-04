@@ -111,8 +111,8 @@ const PrinterDiagnostics: React.FC<Props> = ({ showToast }) => {
       });
       const { Share } = await import('@capacitor/share');
       await Share.share({
-        title: 'BillMaker diagnostics',
-        text: 'Diagnostics report from BillMaker',
+        title: 'Baniya diagnostics',
+        text: 'Diagnostics report from Baniya',
         url: file.uri,
         dialogTitle: `Share ${file.fileName}`,
       });

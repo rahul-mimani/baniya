@@ -1,6 +1,6 @@
-# BillMaker Auth Service
+# Baniya Auth Service
 
-Cloudflare Worker that gates access to the BillMaker web portal via email OTP. Phase 1 of the auth migration.
+Cloudflare Worker that gates access to the Baniya web portal via email OTP. Phase 1 of the auth migration.
 
 ## Architecture quick-look
 

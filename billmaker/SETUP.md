@@ -1,6 +1,6 @@
-# BillMaker — Self-Hosting Setup Guide
+# Baniya — Self-Hosting Setup Guide
 
-A complete, step-by-step guide to running your own BillMaker instance from a fresh
+A complete, step-by-step guide to running your own Baniya instance from a fresh
 clone. Follow it top to bottom. Nothing here is specific to any business — every
 value you enter is your own.
 

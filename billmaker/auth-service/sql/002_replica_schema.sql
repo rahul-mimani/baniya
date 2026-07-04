@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — replica schema (Phase 2)
+-- Baniya Auth Service — replica schema (Phase 2)
 -- ============================================================================
 -- Run this ONCE in Supabase SQL Editor AFTER 001_initial_schema.sql.
 --

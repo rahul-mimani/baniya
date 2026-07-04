@@ -108,7 +108,7 @@ const AdminManageCustomers: React.FC = () => {
           <Users className="h-7 w-7 text-secondary" /> Manage Customers
         </h1>
         <p className="text-sm text-muted-foreground mt-1 max-w-3xl">
-          Customer names from <strong>BillMaker mobile</strong> bills appear here as raw entries.
+          Customer names from <strong>Baniya mobile</strong> bills appear here as raw entries.
           Duplicates like <em>"Raj"</em>, <em>"raj sharma"</em>, <em>"RAJ SHARMA"</em> can be grouped under one canonical
           customer so they show up unified across all bills.
         </p>
@@ -135,7 +135,7 @@ const AdminManageCustomers: React.FC = () => {
               <p className="font-bold text-sky-900">Waiting for bills…</p>
               <p className="text-xs text-sky-800 mt-0.5">
                 Connected to <span className="font-mono">{sync.projectId}</span> · shop{' '}
-                <span className="font-mono">{sync.shopCode}</span>. No bills found yet — once BillMaker writes any bill,
+                <span className="font-mono">{sync.shopCode}</span>. No bills found yet — once Baniya writes any bill,
                 its customer name will show up here. Check the{' '}
                 <RouterLink to="/admin/logs" className="underline font-semibold">Logs</RouterLink> tab for live sync status.
               </p>

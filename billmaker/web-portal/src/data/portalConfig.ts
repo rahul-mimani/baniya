@@ -1,6 +1,6 @@
 /**
  * Admin-only persistent config:
- *  - Firebase credentials + Shop Code for connecting to the BillMaker Firestore (data sync).
+ *  - Firebase credentials + Shop Code for connecting to the Baniya Firestore (data sync).
  *  - Cloudinary cloud name + upload preset for product image hosting.
  *
  * Stored in localStorage for the prototype; will move to a server-side admin-scoped
@@ -71,7 +71,7 @@ export const clearPortalConfig = (): void => {
   listeners.forEach(fn => { try { fn({ ...EMPTY }); } catch {} });
 };
 
-/** Firestore connection — for data sync with BillMaker mobile. */
+/** Firestore connection — for data sync with Baniya mobile. */
 export const isConfigValid = (cfg: PortalConfig): boolean =>
   !!cfg.apiKey.trim() && !!cfg.projectId.trim() && !!cfg.appId.trim() && !!cfg.shopCode.trim();
 

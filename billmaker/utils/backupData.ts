@@ -74,7 +74,7 @@ export const importAllData = async (
     throw new Error('File is not valid JSON.');
   }
   if (!parsed || typeof parsed !== 'object' || parsed.version !== 1 || !Array.isArray(parsed.bills)) {
-    throw new Error('Not a recognized BillMaker backup file.');
+    throw new Error('Not a recognized Baniya backup file.');
   }
 
   const reviveBill = (b: any): Bill => ({

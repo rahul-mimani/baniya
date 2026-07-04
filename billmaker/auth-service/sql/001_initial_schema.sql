@@ -1,5 +1,5 @@
 -- ============================================================================
--- BillMaker Auth Service — initial schema
+-- Baniya Auth Service — initial schema
 -- ============================================================================
 -- Run this ONCE in Supabase SQL Editor (Database → SQL Editor → New query).
 -- All tables live in the default `public` schema and are accessed only via
@@ -10,8 +10,8 @@
 create extension if not exists pgcrypto;
 
 -- ----------------------------------------------------------------------------
--- shops: one row per BillMaker installation. The `code` matches the Shop Code
--- you configured in the web portal's Admin Settings and in BillMaker mobile.
+-- shops: one row per Baniya installation. The `code` matches the Shop Code
+-- you configured in the web portal's Admin Settings and in Baniya mobile.
 -- ----------------------------------------------------------------------------
 create table if not exists shops (
   code        text primary key,

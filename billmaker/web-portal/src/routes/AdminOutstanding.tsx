@@ -376,7 +376,7 @@ const AdminOutstanding: React.FC = () => {
             <DialogDescription>
               You're about to mark <strong>{selectedBills.size} bill{selectedBills.size === 1 ? '' : 's'}</strong> totaling{' '}
               <strong>{fmtINR(selectedTotal)}</strong> as fully paid. This action will push the change to your Firestore
-              <code className="font-mono mx-1 text-xs bg-muted px-1.5 py-0.5 rounded">bills</code> collection so BillMaker mobile sees them as settled too.
+              <code className="font-mono mx-1 text-xs bg-muted px-1.5 py-0.5 rounded">bills</code> collection so Baniya mobile sees them as settled too.
             </DialogDescription>
           </DialogHeader>
           <DialogBody>

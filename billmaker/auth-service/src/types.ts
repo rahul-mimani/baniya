@@ -22,7 +22,7 @@ export interface Env {
 
   JWT_SECRET: string;
   /** Supabase project JWT secret — used to mint Realtime/PostgREST tokens
-   *  for the BillMaker mobile app (which has no user-level auth). Find at
+   *  for the Baniya mobile app (which has no user-level auth). Find at
    *  Supabase Dashboard → Settings → API → JWT Secret. Different from
    *  SUPABASE_SERVICE_KEY (which is a long-lived service role token). */
   SUPABASE_JWT_SECRET?: string;
