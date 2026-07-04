@@ -101,4 +101,4 @@ cd web-portal && npm install && npm run dev
 
 ## License
 
-TODO: add a license (e.g. MIT) before publishing.
+[MIT](../LICENSE) — free to use, modify, and distribute.
